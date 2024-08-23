@@ -8,7 +8,7 @@ const port = 3001; // Use a different port if needed
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/deploy", (req, res) => {
-  exec("/.local/bin/deploy.sh", (error, stdout, stderr) => {
+  exec("/root/.local/bin/deploy.sh", (error, stdout, stderr) => {
     if (error) {
       console.error(`Deployment error: ${error.message}`);
       return res.status(500).send("Deployment failed");
