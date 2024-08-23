@@ -1,0 +1,15 @@
+name: Deploy Application
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger Deployment
+      run: |
+          curl -X POST http://45.77.188.114:3001/deploy
