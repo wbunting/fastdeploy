@@ -11,12 +11,12 @@ app.post("/deploy", (req, res) => {
   exec("/root/.local/bin/deploy.sh", (error, stdout, stderr) => {
     if (error) {
       console.error(`Deployment error: ${error.message}`);
-      return res.status(500).send("Deployment failed");
+      return res.status(500).send(`Deployment failed ${error.message}`);
     }
 
     if (stderr) {
       console.error(`Deployment stderr: ${stderr}`);
-      return res.status(500).send("Deployment failed");
+      return res.status(500).send(`Deployment failed ${error.message}`);
     }
 
     console.log(`Deployment stdout: ${stdout}`);
